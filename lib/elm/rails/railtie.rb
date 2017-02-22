@@ -12,7 +12,7 @@ module Elm
 
       initializer "elm-rails.setup_engine", :group => :all do |app|
         sprockets_env = app.assets || app.config.assets
-        sprockets_env.paths.concat Dir[app.root.join("app", "assets", "elm")]
+        sprockets_env.paths += Dir[app.root.join("app", "assets", "elm")]
 
         config.assets.configure do |env|
           env.register_mime_type "text/x-elm", extensions: [".elm"]
